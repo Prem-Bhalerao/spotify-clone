@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="css/Spotify.css">
+    <link rel="icon" href="https://open.spotify.com/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container flex bg-black">
+        <!-- Left Sidebar -->
+        <div class="left">
+            <div class="close"><img class="invert" src="img/close.svg" alt="close"></div>
+            <div class="logo">
+                <img class="invert" src="img/logo.svg" alt="Spotify">
+            </div>
+            <div class="home bg-grey rounded p-1">
+                <ul>
+                    <li><img class="invert" src="img/home.svg" alt="Home">Home</li>
+                    <li><img class="invert" src="img/search.svg" alt="Search">Search</li>
+                </ul>
+            </div>
+            <div class="library bg-grey rounded p-1 flex">
+                <div class="Your-library flex">
+                    <img class="invert" src="img/library.svg" alt="Library">Your Library
+                </div>
+                <div class="add flex">
+                    <img class="invert" src="img/add.svg" alt="Add">Add
+                </div>
+                <div class="songList">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="footer bg-grey p-1">
+                <a href="https://www.spotify.com/in-en/legal/">Legal</a>
+                <a href="https://www.spotify.com/in-en/safetyandprivacy/">Safety & Privacy Center</a>
+                <a href="https://www.spotify.com/in-en/legal/privacy-policy/">Privacy Policy</a>
+                <a href="https://www.spotify.com/in-en/legal/cookies-policy/">Cookies</a>
+                <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">About Ads</a>
+                <a href="https://www.spotify.com/in-en/accessibility/">Accessibility</a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right">
+            <div class="header flex">
+                <img class="invert hamburger" src="img/hamburger.svg" alt="hamburger">
+                <nav class="nav">
+                    <button class="btn btn-nobg">Premium</button>
+                    <button class="btn btn-nobg">Support</button>
+                    <button class="btn btn-nobg">Download</button>
+                    <div class="install">
+                        <img class="invert" src="img/install.svg" alt="Install"> Install App
+                    </div>
+                    <button class="Sign-Up btn btn-nobg">Sign Up</button>
+                    <button class="Log-in btn btn-white">Log in</button>
+                </nav>
+            </div>
+
+            <!-- Songs Section -->
+            <div class="SongsContainer">
+                <h1>Trending Songs</h1>
+                <div class="cardContainer">
+                    <!-- Dynamic cards will be populated here -->
+                </div>
+            </div>
+
+            <!-- Bottom Player -->
+            <div class="bottom-player">
+                <div class="song-info1"></div>
+                <div class="player-controls">
+                    <button id="Previous" class="control-btn"><img class="invert" src="img/previous.svg" alt="previous"></button>
+                    <button id="Play" class="control-btn play-pause"><img class="invert" src="img/play.svg" alt="play"></button>
+                    <button id="Next" class="control-btn"><img class="invert" src="img/next.svg" alt="next"></button>
+                </div>
+                <div class="volume-controls">
+                    <div class="volume">
+                        <img class="invert" src="img/volume.svg" alt="volume">
+                    </div>
+                    <div class="range">
+                        <input type="range" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <span class="time"></span>
+                    <span class="Songtime"></span>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                        <div class="progress-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/Spotify.js"></script>
+</body>
+</html>

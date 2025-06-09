@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    padding: 10px;
+}
+
+.left {
+    width: 25vw;
+    margin: 5px;
+}
+
+.left .close {
+    position: absolute;
+    right: 31px;
+    top: 10px;
+    cursor: pointer;
+    width: 20px;
+}
+
+.close {
+    display: none;
+}
+
+.right {
+    width: 75vw;
+    overflow: hidden; /* Prevent horizontal scrolling */
+    margin: 5px;
+    position: relative;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.home ul li {
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    list-style: none;
+    margin: 5px;
+}
+
+.home ul li img,
+.library img {
+    height: 24px;
+    width: 24px;
+}
+
+.home img {
+    height: 25px;
+    width: auto;
+}
+
+.library {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 15px;
+    padding: 10px;
+    background-color: #181818;
+    border-radius: 8px;
+    overflow-y: auto;
+    min-height: 400px;
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    padding: 8px;
+    height: 40px;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    font-size: 10px;
+    bottom: 0;
+}
+
+.footer a {
+    color: rgb(133, 133, 133);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 15px;
+    background-color: rgb(18, 18, 18);
+    margin-top: 10px;
+    border-radius: 5px;
+    height: 45px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 10px; /* Reduce gap for better fit */
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Reduced from 20px */
+    margin-left: auto;
+    flex-wrap: wrap; /* Allow nav items to wrap */
+}
+
+.install {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.install img {
+    height: 16px;
+    width: 16px;
+}
+
+.btn:hover,
+.install:hover {
+    opacity: 0.8;
+}
+
+.Log-in:hover {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Songs Container */
+.SongsContainer h1 {
+    font-size: 20px;
+   padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(0, 0, 0); /* For visibility, adjust as needed */
+}
+
+/* Card Container */
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap */
+    gap: 20px; /* Reduced from 30px */
+    padding: 10px;
+    background-color: rgb(28, 28, 28); /* For visibility, adjust as needed */
+    border-radius: 15px;
+    justify-content: flex-start; /* Align cards to start */
+}
+
+/* Individual Card */
+.card {
+    display: flex;
+    flex-direction: column; /* Stack image and info vertically */
+    width: 150px; /* Base width */
+    min-width: 120px; /* Minimum width for smaller screens */
+    flex: 1 1 auto; /* Allow cards to grow/shrink */
+    max-width: 150px; /* Cap width */
+    height: auto; /* Adjust height dynamically */
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #121212;
+}
+
+.card:hover {
+    background-color: rgb(55, 55, 55);
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.image-container img {
+    width: 100%; /* Full width of container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100px; /* Cap height */
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.play-button {
+    position: absolute;
+    bottom: 10px; /* Adjusted for smaller cards */
+    right: 10px;
+    background-color: #1DB954;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.image-container:hover .play-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.play-button svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.card span {
+    font-size: 9px;
+    color: gray;
+}
+
+/* Bottom Player */
+.bottom-player {
+    position: fixed;
+    bottom: 20px;
+    width: calc(75vw - 20px);
+    max-width: calc(75vw - 20px);
+    background-color: #181818;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #333;
+    max-height: 100px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Song Info Section */
+.song-info {
+    display: flex;
+    padding-top: 10px;
+    gap: 10px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-info h3 {
+    font-size: 10px;
+}
+
+.song-info p {
+    font-size: 8px;
+}
+
+/* Song Cover Image */
+.song-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+/* Song Details */
+.song-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Song Title */
+.song-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Song Artist */
+.song-artist {
+    font-size: 11px;
+    color: #b3b3b3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Like Button */
+.like-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
+    padding: 8px;
+}
+
+/* Player Controls */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.control-btn img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Volume Controls */
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 150px;
+}
+
+.range input[type="range"] {
+    width: 100px;
+    height: 4px;
+    cursor: pointer;
+    border-radius: 2px;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: #1DB954;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.range input[type="range"]::-moz-range-thumb {
+    background: #1DB954;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.volume img {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+/* Progress Bar and Time */
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: flex-end;
+    max-width: 40%;
+}
+
+.progress-bar {
+    position: relative;
+    width: 50%;
+    height: 4px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #1db954;
+    border-radius: 2px;
+    width: 0%;
+}
+
+.progress-circle {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 12px;
+    height: 12px;
+    background-color: #1db954;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.time,
+.Songtime {
+    font-size: 15px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.songList {
+    padding: 0 10px; 
+    height: 485px;
+    overflow: auto;
+}
+
+.songList ul li {
+    list-style-type: decimal;
+    border: 2px solid rgb(0, 255, 76);
+    padding: 5px; /* Reduced from 10px */
+    margin: 5px 0; /* Reduced from 10px */
+    border-radius: 10px;
+    display: flex; /* Ensure flex for proper alignment */
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden; /* Prevent text overflow */
+}
+
+
+/* Songs List */
+.songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    left: 0;
+    background-color: #555252;
+    border-radius: 8px;
+    max-width: 100%;
+    overflow-x: hidden;
+    height: 300px;
+}
+
+/* Individual Song */
+.song {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(193, 193, 193);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.song:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden; /* Contain text */
+    text-overflow: ellipsis; /* Add ellipsis for long text */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+.song-name {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Keep nowrap for larger screens */
+}
+@media (max-width: 1815px) {
+    .song-name {
+        font-size: 12px;
+        white-space: normal; /* Allow wrapping */
+        word-break: break-word; /* Break words if needed */
+        line-height: 1.2; /* Space out lines */
+        display: block; /* Change from flex to block for natural stacking */
+    }
+}
+
+
+.song-artist {
+    font-size: 12px; /* Reduced from 14px */
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.play-now {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.play-now:hover {
+    background-color: #1ed760;
+}
+
+/* Responsive Design */
+@media (max-width: 912px) {
+    .left {
+        position: absolute;
+        left: -100%;
+        transition: all 0.5s;
+        z-index: 1;
+        width: 334px;
+        background-color: #181818;
+    }
+
+    .right {
+        width: 100vw;
+        max-width: 100vw;
+        overflow: hidden; /* Prevent horizontal scrolling */
+    }
+
+    .bottom-player {
+        width: calc(100vw - 20px);
+        max-width: calc(100vw - 20px);
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: block;
+        top: 10px;
+        cursor: pointer;
+    }
+
+    .close {
+        display: block;
+    }
+
+    .header {
+        padding: 5px;
+        gap: 5px; /* Further reduce gap */
+        height: auto; /* Allow height to adjust */
+    }
+
+    .nav {
+        gap: 5px; /* Reduce gap */
+        justify-content: flex-end; /* Align items to end */
+    }
+
+    .cardContainer {
+        flex-wrap: wrap;
+        justify-content: center; /* Center cards */
+        gap: 15px; /* Reduce gap */
+        padding: 5px;
+    }
+
+    .card {
+        width: 45%; /* Take half width on smaller screens */
+        max-width: 150px; /* Cap width */
+        min-width: 100px; /* Smaller minimum */
+    }
+
+    .image-container img {
+        max-height: 80px; /* Reduce image height */
+    }
+
+    .play-button {
+        bottom: 5px; /* Adjust for smaller cards */
+        width: 30px;
+        height: 30px;
+    }
+
+    .play-button svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .progress-container {
+        max-width: 30%; /* Reduce width on smaller screens */
+    }
+
+    .progress-bar {
+        width: 100%; /* Full width of container */
+    }
+}
